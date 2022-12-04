@@ -7,44 +7,45 @@ to demonstrate basic query/mutation resolvers and dataloaders.
 
 ```graphql
 query Posts {
-    posts {
-        id
-        title
-        body
-        user {
-            id
-            name
-            email
-        }
-        comments {
-            id
-            postId
-            email
-            body
-        }
+  posts {
+    id
+    title
+    body
+    user {
+      id
+      name
+      email
     }
+    comments {
+      id
+      postId
+      email
+      body
+    }
+  }
 }
-
 ```
 
 ### Mutation
 
 ```graphql
 mutation UpdatePost($id: ID!, $title: String!, $body: String!, $userId: ID!) {
-	updatePost(id: $id, title: $title, body: $body, userId: $userId) {
-		id
-		user {
-            id
-		}
-		title
-		body
-		comments {
-            id
-		}
-	}
+  updatePost(id: $id, title: $title, body: $body, userId: $userId) {
+    id
+    user {
+      id
+    }
+    title
+    body
+    comments {
+      id
+    }
+  }
 }
 ```
-NOTE: The updatePost mutation above always returns an id of 101 from the JsonPlaceholder api.  
+
+NOTE: The updatePost mutation above always returns an id of 101 from the JsonPlaceholder api.
+
 ### Resources
 
 RESTDataSource
@@ -60,4 +61,3 @@ https://www.npmjs.com/package/dataloader
 To start the server:
 
 `npm run start`
-
